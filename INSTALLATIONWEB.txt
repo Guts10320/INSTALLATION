@@ -1,0 +1,29 @@
+Pour installer l'application WEB GSB :
+
+git clone de gsbback et gsbfront sous visual studio code
+
+cd document
+mkdir gsb-back
+cd mkdir gsb-back
+git clone
+
+
+Une fois que GSB BACK ET FRONT sont liés : 
+
+npm install (les dépendances) 
+
+
+Installation de Docker Desktop : 
+
+docker network create gsb
+
+docker run -p 3306:3306 -d -e MYSQL_ROOT_PASSWORD=root -e MYSQL_ROOT_HOST=% --name mysql --network gsb mysql
+docker run -p 8080:80 -d -e PMA_HOST=mysql --name myadmin --network gsb phpmyadmin
+
+
+Pour déshacher le mot de passe sur PhpMyAdmin:
+
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
+FLUSH PRIVILEGES;
+
+localhost:8080
